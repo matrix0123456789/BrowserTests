@@ -16,6 +16,7 @@
 <pre>
 
 </pre>
+  <pre class="dwa"></pre>
 <script>
   var vx=0,vy=0,vz=0;
   var vx2=0,vy2=0,vz2=0;
@@ -30,6 +31,11 @@ vz2+=event.accelerationIncludingGravity.z*event.interval/1000;
 var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval,vx,vy,vz,vx2,vy2,vz2];
 document.querySelector('pre').textContent=z.join('\r\n');
 });
+  
+  window.addEventListener('deviceorientation', function(event) {
+  var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval];
+document.querySelector('.dwa').textContent=z.join('\r\n');
+  });
 </script>
 </body>
 </html>

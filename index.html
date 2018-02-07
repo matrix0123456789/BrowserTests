@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<pre>
+<pre class="jeden">
 
 </pre>
   <pre class="dwa"></pre>
@@ -31,11 +31,11 @@ py+=vy*event.interval/1000+0.5*event.acceleration.y*event.interval/1000*event.in
 pz+=vz*event.interval/1000+0.5*event.acceleration.z*event.interval/1000*event.interval/1000;
   var vl=Math.sqrt(vx*vx+vy*vy+vz*vz);
 var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval,vx,vy,vz,vl, px,py,pz];
-document.querySelector('pre').textContent=z.join('\r\n');
+document.querySelector('.jeden').textContent=z.join('\r\n');
 });
   
   window.addEventListener('deviceorientation', function(event) {
-  var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval];
+  var z=[event.alpha, event.beta, event.gamna];
 document.querySelector('.dwa').textContent=z.join('\r\n');
   });
 </script>

@@ -13,13 +13,14 @@
 </head>
 
 <body>
-<div>
+<pre>
 
-</div>
+</pre>
 <script>
 window.addEventListener('devicemotion', function(event) {
   console.log(event);
-document.querySelector('div').textContent=JSON.stringify(event);
+var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval];
+document.querySelector('div').textContent=z.join('\r\n');
 });
 </script>
 </body>

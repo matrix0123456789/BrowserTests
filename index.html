@@ -19,16 +19,18 @@
   <pre class="dwa"></pre>
 <script>
   var vx=0,vy=0,vz=0;
-  var vx2=0,vy2=0,vz2=0;
+  var px=0,py=0,pz=0;
 window.addEventListener('devicemotion', function(event) {
   console.log(event);
 vx+=event.acceleration.x*event.interval/1000;
 vy+=event.acceleration.y*event.interval/1000;
 vz+=event.acceleration.z*event.interval/1000;
-vx2+=event.accelerationIncludingGravity.x*event.interval/1000;
-vy2+=event.accelerationIncludingGravity.y*event.interval/1000;
-vz2+=event.accelerationIncludingGravity.z*event.interval/1000;
-var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval,vx,vy,vz,vx2,vy2,vz2];
+
+px+=vx*event.interval/1000+0.5*event.acceleration.x*event.interval/1000*event.interval/1000;
+py+=vy*event.interval/1000+0.5*event.acceleration.y*event.interval/1000*event.interval/1000;
+pz+=vz*event.interval/1000+0.5*event.acceleration.z*event.interval/1000*event.interval/1000;
+  var vl=Math.sqrt(vx*vx+vy*vy+vz*vz);
+var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval,vx,vy,vz,vl, px,py,pz];
 document.querySelector('pre').textContent=z.join('\r\n');
 });
   

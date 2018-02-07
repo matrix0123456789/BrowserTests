@@ -17,9 +17,17 @@
 
 </pre>
 <script>
+  var vx=0,vy=0,vz=0;
+  var vx2=0,vy2=0,vz2=0;
 window.addEventListener('devicemotion', function(event) {
   console.log(event);
-var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval];
+vx+=event.acceleration.x*event.interval/1000;
+vy+=event.acceleration.y*event.interval/1000;
+vz+=event.acceleration.z*event.interval/1000;
+vx2+=event.accelerationIncludingGravity.x*event.interval/1000;
+vy2+=event.accelerationIncludingGravity.y*event.interval/1000;
+vz2+=event.accelerationIncludingGravity.z*event.interval/1000;
+var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval,vx,vy,vz,vx2,vy2,vz2];
 document.querySelector('pre').textContent=z.join('\r\n');
 });
 </script>

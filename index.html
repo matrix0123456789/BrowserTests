@@ -30,7 +30,7 @@ px+=vx*event.interval/1000+0.5*event.acceleration.x*event.interval/1000*event.in
 py+=vy*event.interval/1000+0.5*event.acceleration.y*event.interval/1000*event.interval/1000;
 pz+=vz*event.interval/1000+0.5*event.acceleration.z*event.interval/1000*event.interval/1000;
   var vl=Math.sqrt(vx*vx+vy*vy+vz*vz);
-var z=[event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval,vx,vy,vz,vl, px,py,pz];
+var z=['acceleration',event.acceleration.x,event.acceleration.y,event.acceleration.z,event.accelerationIncludingGravity.x,event.accelerationIncludingGravity.y,event.accelerationIncludingGravity.z, 'rotationRate',event.rotationRate.alpha, event.rotationRate.beta, event.rotationRate.gamma,event.interval,'vs',vx,vy,vz,vl,'pos', px,py,pz];
 document.querySelector('.jeden').textContent=z.join('\r\n');
 });
   
